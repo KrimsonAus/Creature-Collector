@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
-    public string dataName;
-    public string data;
+    //public string dataName;
+    //public string data;
     // Start is called before the first frame update
     void Start()
     {
 
     }
-    async void Save()
+    public async void Save(string dataName, string data)
     {
         var d = new Dictionary<string, object>
         {
             {dataName, data }
         };
         await CloudSaveService.Instance.Data.ForceSaveAsync(d);
-        print("Save Data Attempt Made");
+        print("Save Data Attempt Made: " + Time.realtimeSinceStartup);
     }
 }

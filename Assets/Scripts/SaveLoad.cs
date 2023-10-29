@@ -23,7 +23,7 @@ public class SaveLoad : MonoBehaviour
         };
         await CloudSaveService.Instance.Data.ForceSaveAsync(data);
         print("Save Data Attempt Made");
-    }
+    }   
 
     async void LoadData()
     {
