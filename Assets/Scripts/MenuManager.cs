@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject menu;
     public string sceneName;
+    public bool signOut;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,10 @@ public class MenuManager : MonoBehaviour
 
     public void ChangeScene()
     {
+        if(signOut)
+        {
+            AuthenticationService.Instance.SignOut();
+        }
         SceneManager.LoadScene(sceneName);
     }
 }

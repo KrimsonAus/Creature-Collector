@@ -16,7 +16,21 @@ public class ResourceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CheckGRH();
+        if(PlayerPrefs.GetInt("first") != 1)
+        {
+            PlayerPrefs.SetInt("gems", 0);
+            PlayerPrefs.SetInt("rice", 0);
+            PlayerPrefs.SetInt("hearts", 0);
+            PlayerPrefs.SetInt("first", 1);
+
+            UpdateGRH();
+        }
+        else
+        {
+            updateTimer = 0;
+            CheckGRH();
+            updateTimer = 0;
+        }
     }
 
     // Update is called once per frame

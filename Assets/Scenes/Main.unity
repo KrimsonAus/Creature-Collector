@@ -926,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
   sceneName: Login
+  signOut: 1
 --- !u!1 &348025289
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &411481945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2059,6 +2060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1045536574}
   sceneName: 
+  signOut: 0
 --- !u!1 &1066214820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,6 +4960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 1045536574}
   sceneName: 
+  signOut: 0
 --- !u!1 &2017717957
 GameObject:
   m_ObjectHideFlags: 0

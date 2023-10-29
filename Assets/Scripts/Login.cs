@@ -21,7 +21,7 @@ public class Login : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         UnityServices.InitializeAsync();
 
         if(PlayerPrefs.GetInt("saveLogin") == 1)
@@ -29,6 +29,7 @@ public class Login : MonoBehaviour
             AttemptSignIn(PlayerPrefs.GetString("username"), PlayerPrefs.GetString("password"));
         }
     }
+
 
     async void AttemptSignUp(string username, string password)
     {
@@ -69,6 +70,7 @@ public class Login : MonoBehaviour
                 PlayerPrefs.SetString("username", username); 
                 PlayerPrefs.SetString("password", password);
             }
+            PlayerPrefs.SetInt("first", 1);
             SceneManager.LoadScene(1);
         }
         catch (AuthenticationException ex)
@@ -88,7 +90,8 @@ public class Login : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        username = usernameField.text;
+        password = passwordField.text;
     }
 
     public void SignUp()
@@ -104,8 +107,7 @@ public class Login : MonoBehaviour
     {
         if (saveLogin.isOn)
         {
-            username = usernameField.text;
-            password = passwordField.text;
+            
             PlayerPrefs.SetInt("saveLogin", 1);
             save = true;
         }
