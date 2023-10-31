@@ -35,6 +35,7 @@ public class MenuManager : MonoBehaviour
     {
         if(signOut)
         {
+            FindAnyObjectByType<ResourceManager>().UpdateGRH();
             AuthenticationService.Instance.SignOut();
         }
         SceneManager.LoadScene(sceneName);

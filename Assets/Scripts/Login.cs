@@ -43,6 +43,7 @@ public class Login : MonoBehaviour
                 PlayerPrefs.SetString("username", username);
                 PlayerPrefs.SetString("password", password);
             }
+            PlayerPrefs.SetInt("first", 0);
             SceneManager.LoadScene(1);
         }
         catch (AuthenticationException ex)

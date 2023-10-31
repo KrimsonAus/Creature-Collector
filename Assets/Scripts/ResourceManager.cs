@@ -13,23 +13,40 @@ public class ResourceManager : MonoBehaviour
     float updateTimer;
 
     public string valueS;
+
+    public GameObject creatureManager;
     // Start is called before the first frame update
     void Start()
     {
         if(PlayerPrefs.GetInt("first") != 1)
         {
-            PlayerPrefs.SetInt("gems", 0);
-            PlayerPrefs.SetInt("rice", 0);
+            updateTimer = 0;
+            PlayerPrefs.SetInt("gems", 25);
+            PlayerPrefs.SetInt("rice", 10);
             PlayerPrefs.SetInt("hearts", 0);
             PlayerPrefs.SetInt("first", 1);
 
+            updateTimer = 0;
+            for (int i = 0; i < FindAnyObjectByType<CreatureManager>().creatureName.Length; i++)
+            {
+                FindObjectOfType<SaveData>().Save(FindAnyObjectByType<CreatureManager>().creatureName[i], "0");
+                FindObjectOfType<SaveData>().Save(FindAnyObjectByType<CreatureManager>().creatureName[i]+"Hunger", "0");
+            }
+
+            updateTimer = 0;
             UpdateGRH();
+
+            creatureManager.SetActive(true);
+
+            updateTimer = 0;
         }
         else
         {
             updateTimer = 0;
             CheckGRH();
             updateTimer = 0;
+
+            creatureManager.SetActive(true);
         }
     }
 
@@ -63,7 +80,7 @@ public class ResourceManager : MonoBehaviour
         PlayerPrefs.SetInt("hearts", int.Parse(loadedData["hearts"]));
     }
 
-    void UpdateGRH()
+    public void UpdateGRH()
     {
         FindObjectOfType<SaveData>().Save("gems",  PlayerPrefs.GetInt("gems") + "");
         FindObjectOfType<SaveData>().Save("rice",  PlayerPrefs.GetInt("rice") + "");

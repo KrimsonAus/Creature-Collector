@@ -37,7 +37,7 @@ public class CreatureManager : MonoBehaviour
         }
     }
 
-    async void LoadCreatures()
+    public async void LoadCreatures()
     {
 
         //var keysToLoad = new HashSet<string>

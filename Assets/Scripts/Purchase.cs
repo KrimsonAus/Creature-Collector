@@ -36,6 +36,16 @@ public class Purchase : MonoBehaviour
             owned = true;
             FindAnyObjectByType<SaveData>().Save(product, "1");
             PlayerPrefs.SetInt("gems", PlayerPrefs.GetInt("gems") - cost);
+            Delay(5);
+            FindAnyObjectByType<CreatureManager>().LoadCreatures();
+        }
+    }
+
+    public void Delay(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            Mathf.Sqrt(Random.Range(1000000, 99999999));
         }
     }
 }
